@@ -8,25 +8,59 @@
     <title>Document</title>
 </head>
 <body>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDm3AiN5TzPnx8zRUcrLRNGLQj7pIHJzZ0",
+            authDomain: "l1project-1e696.firebaseapp.com",
+            databaseURL: "https://l1project-1e696-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "l1project-1e696",
+            storageBucket: "l1project-1e696.appspot.com",
+            messagingSenderId: "570181742311",
+            appId: "1:570181742311:web:b6413c74bec20ef1773c42"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        function sendDataToFirebase(){
+            var db = firebase.database();
+            text_title = document.getElementById("title")
+            text_artist = document.getElementById("artist")
+            text_date = document.getElementById("date")
+            text_time = document.getElementById("time")
+            text_price = document.getElementById("price")
+            text_explanation = document.getElementById("explanation")
+            answerText_title = text_title.value
+            answerText_artist = text_artist.value
+            answerText_date = text_date.value
+            answerText_time = text_time.value
+            answerText_price = text_price.value
+            answerText_explanation = text_explanation.value
+            db.ref("event").push({"title":answerText_title, "artist":answerText_artist, "date":answerText_date, "time":answerText_time, "price":answerText_price, "explanation":answerText_explanation,})
+        }
+    </script>
+
     
     <h1>イベント登録</h1>
     <form action="#" method="post">
         <p>イベント名：<br>
-            <input type="text" name="title"></p>
+            <input id ="title" type="text" name="title"></p>
         <p>アーティスト名：<br>
-            <input type="text" name="title"></p>
+            <input id="artist" type="text" name="artist"></p>
         <p>月日：<br>
-            <input type="date" name="title"></p>
+            <input id="date" type="date" name="date"></p>
         <p>時間：<br>
-            <input type="time" name="title"></p>
+            <input id="time" type="time" name="time"></p>
         <p>料金：<br>
-            <input type="text" name="title"></p>
+            <input id="price" type="text" name="price"></p>
         <p>説明：<br>
-            <input type="text" name="title"></p>
+            <input id="explanation" type="text" name="explanation"></p>
     </form>
 
-
-    <button class="btn" onclick="location.href='W3.html'">登録</button>
+    
+    <button class="btn" onclick="sendDataToFirebase();location.href='W3.html'" >登録</button>
+    <button  onclick="sendDataToFirebase()">Firebase</button>
     
 </body>
 </html>
