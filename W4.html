@@ -9,9 +9,55 @@
     <link rel="stylesheet" href="L1style.css">
 </head>
 <body>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDm3AiN5TzPnx8zRUcrLRNGLQj7pIHJzZ0",
+            authDomain: "l1project-1e696.firebaseapp.com",
+            databaseURL: "https://l1project-1e696-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "l1project-1e696",
+            storageBucket: "l1project-1e696.appspot.com",
+            messagingSenderId: "570181742311",
+            appId: "1:570181742311:web:b6413c74bec20ef1773c42"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        //Firebaseからデータを受信するための「リスナー」を設置
+        var refrence_a =firebase.database().ref("event");
+
+        refrence_a.on('value',(snapshot)=>{
+            const data = snapshot.val();
+            addText(data)
+        });
+
+        function addText(data){
+            const p = document.createElement("p");
+            p.innerHTML = data
+            const div = document.getElementById("list")
+            div.appendChild(p)
+        }
+
+        
+    </script>
+
+         <!-- Header
+   ================================================== -->
+   <header>
+
+    <div class="logo">
+       <a href="W1.html"><img alt="" src="image/logo.png"></a>
+    </div>
+
+
+ </header> <!-- Header End -->
+
     <div class="W4-text">
         <h1 class="success">顧客リスト</h1>
     </div>
+
+    <div id="list"></div>
     
     
 </body>
