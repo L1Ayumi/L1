@@ -108,10 +108,10 @@
        
 
         <p style="text-align: left;"><b>イベント名：
-            <input id="title" type="text" name="title"></b></p>
+            <input id="title" type="text" name="title" placeholder="イベント・ライブ・公演名"></b></p>
 
         <p style="text-align: left;"><b>アーティスト名：
-            <input id="artist" type="text" name="artist"></b></p>
+            <input id="artist" type="text" name="artist" placeholder="例）伊藤　忠"></b></p>
 
         <p style="text-align: left;"><b>月日：
             <input id="date" type="date" name="date"></b></p>
@@ -120,16 +120,19 @@
             <input id="time" type="time" name="time"></b></p>
 
         <p style="text-align: left;"><b>料金：
-            <input id="price" type="text" name="price"></b></p>
+            <input id="price" type="text" name="price" placeholder="例）8000円"></b></p>
 
         <p style="text-align: left;"><b>説明：
-            <input id="explanation" type="text" name="explanation"></b></p><br>
+            <input id="explanation" type="text" name="explanation" placeholder="イベントの説明・紹介"></b></p><br>
 
        
     
     </form>
 
     <button class="btn" onclick="sendDataToFirebase(); location.href='W3.html'">登録</button>
+    <div class="buttons">
+        <a class="button home" href="W1.html">キャンセル</a>
+    </div>
     <!-- <button onclick="sendDataToFirebase()">Firebase</button> -->
 </div>
 
